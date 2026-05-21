@@ -14,7 +14,7 @@ public class HomeController {
 
         model.addAttribute(
                 "message",
-                "Automated CI/CD Deployment Successful"
+                "DevOps 2026 Automated CI/CD Deployment Successful"
         );
 
         return "home";
