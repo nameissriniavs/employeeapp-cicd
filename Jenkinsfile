@@ -12,12 +12,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/nameissriniavs/employeeapp-cicd.git'
-            }
-        }
-
         stage('Build Application') {
             steps {
                 sh 'mvn clean package'
