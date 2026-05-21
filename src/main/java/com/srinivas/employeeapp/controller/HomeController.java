@@ -14,7 +14,7 @@ public class HomeController {
 
         model.addAttribute(
                 "message",
-                "Spring Boot Application Successfully Deployed using Jenkins Pipeline on AWS EC2"
+                "Automated CI/CD Deployment Successful"
         );
 
         return "home";
