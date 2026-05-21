@@ -7,31 +7,22 @@ pipeline {
     }
 
     environment {
-        TOMCAT_WEBAPPS = '/opt/tomcat/webapps'
+        DEPLOY_DIR = '/opt/tomcat/webapps'
     }
 
     stages {
 
-        stage('Build Application') {
+        stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
-        stage('Deploy WAR') {
+        stage('Deploy') {
             steps {
 
                 sh '''
-                cp target/*.war $TOMCAT_WEBAPPS/employeeapp.war
-                '''
-
-            }
-        }
-
-        stage('Restart Tomcat') {
-            steps {
-
-                sh '''
+                sudo cp target/*.war $DEPLOY_DIR/employeeapp.war
                 sudo systemctl restart tomcat
                 '''
 
